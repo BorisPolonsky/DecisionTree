@@ -2,7 +2,7 @@
 
 def main():
     try:
-        file=open(r'.\TestData\SoybeanTraining.csv')
+        file = open(r'.\TestData\SoybeanTraining.csv')
     except(IOError):
         print("Cannot open this file. ")
         return
@@ -15,8 +15,8 @@ def main():
         Data.pop(0)
     finally:
         file.close()
-    tree=DecisionTree.DecisionTree()
-    TargetAttribute="germination"
+    tree = DecisionTree.DecisionTree()
+    TargetAttribute = "germination"
     tree.Generate(Data,Attributes,TargetAttribute)
     print("Tree generated. ")
     print("Predict Data:")
