@@ -1,4 +1,5 @@
 ﻿import math
+import copy
 class DecisionTree():
     def __init__(self):
         self.__structure = None
@@ -95,10 +96,11 @@ class DecisionTree():
                 iterator = iterator[1][Data[i]]
             except KeyError:
                 raise DecisionTreeException(1)
-        return iterator[1]
+        ret = copy.deepcopy(iterator[1])
+        return ret
 
     def Predict(self,Data):
-        Result_List=self.Predict_prob(Data)
+        Result_List = self.Predict_prob(Data)
         return(list(sorted(Result_List,key=lambda x:x[1],reverse=True))[0][0])
 
     def __BeOfTheSameClass(self,Attributes,TargetAttrbute,Data):
@@ -111,6 +113,7 @@ class DecisionTree():
             if individual[i] != Class_0:
                 return False
         return True
+
     def __repr__():
         ...
 

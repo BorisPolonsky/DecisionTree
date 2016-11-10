@@ -22,7 +22,7 @@ def main():
     print("Predict Data:")
     print(Data[-1])
     print("Result:")
-    print(tree.Predict(Data[-1]))
+    print(tree.Predict_prob(Data[-1]))
 
 
 if __name__ == '__main__':
