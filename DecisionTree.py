@@ -87,7 +87,7 @@ class DecisionTree():
                 for key in freq:
                     front[0][1].append((key,float(freq[key] / len(front[1]))))
 
-    def Predict(self,Data):
+    def Predict_prob(self,Data):
         iterator = self.__structure
         while iterator[0] != None:
             i = self.__Attributes.index(iterator[0])
@@ -96,6 +96,10 @@ class DecisionTree():
             except KeyError:
                 raise DecisionTreeException(1)
         return iterator[1]
+
+    def Predict(self,Data):
+        Result_List=self.Predict_prob(Data)
+        return(list(sorted(Result_List,key=lambda x:x[1],reverse=True))[0][0])
 
     def __BeOfTheSameClass(self,Attributes,TargetAttrbute,Data):
         try:
